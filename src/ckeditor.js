@@ -28,6 +28,9 @@ import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
+import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
@@ -93,6 +96,9 @@ DecoupledEditor.builtinPlugins = [
 	InsertAsset,
 	Link,
 	List,
+	Indent,
+	Code,
+	CodeBlock,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
@@ -124,6 +130,12 @@ DecoupledEditor.defaultConfig = {
 			'bulletedList',
 			'todoList',
 			'|',
+			'indent',
+			'outdent',
+			'|',
+			'code',
+			'codeblock',
+			'|',
 			'link',
 			'blockquote',
 			'insertAsset',
@@ -151,11 +163,13 @@ DecoupledEditor.defaultConfig = {
 		styles: [
 			'full',
 			'alignLeft',
+			'alignCenter',
 			'alignRight'
 		],
 		toolbar: [
-			'imageStyle:alignLeft',
 			'imageStyle:full',
+			'imageStyle:alignLeft',
+			'imageStyle:alignCenter',
 			'imageStyle:alignRight',
 			'|',
 			'imageTextAlternative'
@@ -166,6 +180,25 @@ DecoupledEditor.defaultConfig = {
 			'tableColumn',
 			'tableRow',
 			'mergeTableCells'
+		]
+	},
+	codeBlock:	{ 
+		languages: [
+			{ language: 'plaintext', label: 'Plain text' },
+			{ language: 'bash', label: 'Bash' },
+			{ language: 'c', label: 'C' },
+			{ language: 'cpp', label: 'C++' },
+			{ language: 'css', label: 'CSS' },
+			{ language: 'java', label: 'Java' },
+			{ language: 'json', label: 'JSON' },
+			{ language: 'kotlin', label: 'Kotlin' },
+			{ language: 'javascript', label: 'JavaScript' },
+			{ language: 'python', label: 'Python' },
+			{ language: 'sql', label: 'SQL' },
+			{ language: 'swift', label: 'Swift' },
+			{ language: 'typescript', label: 'TypeScript' },
+			{ language: 'yaml', label: 'YAML' },
+			{ language: 'go', label: 'Go' }
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
